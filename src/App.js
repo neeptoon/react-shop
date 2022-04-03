@@ -1,11 +1,16 @@
-import Hello from "./Components/Hello";
+import Header from "./Components/Header";
+import Shop from "./Components/Shop";
+import Footer from "./Components/Footer";
+
 
 function App() {
-  return (
-    <div className="App">
-      <Hello></Hello>
-    </div>
-  );
+	return (
+		<>
+			<Header/>
+			<Shop/>
+			<Footer/>
+		</>
+	);
 }
 
 export default App;
