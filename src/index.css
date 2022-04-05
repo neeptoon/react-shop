@@ -34,3 +34,18 @@ main {
 .card-action span {
     font-size: 1.8rem;
 }
+
+.cart {
+    position: fixed;
+    right: 2em;
+    bottom: 10vh;
+    padding: 0.5em;
+}
+
+@media (min-width: 900px) {
+    .cart {
+        top: 12vh;
+        bottom: unset;
+        right: 50px;
+    }
+}

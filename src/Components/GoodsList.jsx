@@ -1,7 +1,7 @@
 import GoodsItem from "./GoodsItem";
 
 export default function GoodsList(props) {
-	const {goods = []} = props;
+	const {goods = [], addToBasket} = props;
 
 	if(!goods.length) {
 		return <h3>Nothing here</h3>
@@ -9,7 +9,7 @@ export default function GoodsList(props) {
 
 	return (
 		<div className="goods">
-			{goods.map(good => <GoodsItem key={good.id} {...good}/>)}
+			{goods.map(good => <GoodsItem key={good.id} good={good} addToBasket={addToBasket}/>)}
 		</div>
 
 	)
