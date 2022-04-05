@@ -1,8 +1,11 @@
-export default function BasketItem({id, name, price, quantity}) {
+export default function BasketItem({id, name, price, quantity, removeFromBasket, changeQuantity}) {
 	return (
-		<li className="collection-item">
-			{name} x {quantity} шт = {price * quantity} &#8381;
-			<span className="secondary-content">
+		<li className="collection-item" onClick={(evt) => changeQuantity(evt, id)}>
+			{name}
+			<i id="increase" className="material-icons basket-quantity">add</i> x {quantity}
+			<i id="decrease" className="material-icons basket-quantity decrease">remove</i>
+			шт = {price * quantity} &#8381;
+			<span className="secondary-content" onClick={(evt) => {evt.stopPropagation(); removeFromBasket(id)}}>
 				<i className="material-icons">close</i>
 			</span>
 		</li>

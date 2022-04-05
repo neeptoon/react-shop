@@ -15,6 +15,30 @@ export default function Shop(props) {
 		setBasketShow(!isBasketShow);
 	}
 
+	const changeQuantity = (evt, itemId) => {
+		const handlerName = evt.target.id;
+
+		function changeQuantity(item) {
+			if (handlerName === 'increase') {
+				item.quantity += 1
+			} else if (handlerName === 'decrease') {
+				item.quantity -= 1
+			}
+			return item
+		}
+
+		const newOrder = order.map(item => {
+			if (item.id === itemId) {
+				console.log(item)
+				return changeQuantity(item)
+			} else {
+				return item
+			}
+		})
+
+		setOrder([...newOrder])
+	}
+
 
 	const addToBasket = (good) => {
 		const newGood = {
@@ -30,6 +54,10 @@ export default function Shop(props) {
 		}
 	}
 
+	const removeFromBasket = (goodId) => {
+		const newOrder = order.filter(good => good.id !== goodId);
+		setOrder(() =>  newOrder)
+	}
 
 	useEffect(() => {
 		fetch(API_URL, {
@@ -48,8 +76,7 @@ export default function Shop(props) {
 		<main className="container content">
 			{isLoading ? <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket}/>}
 			<Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
-
-			{isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow}/>}
+			{isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow} removeFromBasket={removeFromBasket} changeQuantity={changeQuantity}/>}
 		</main>
 	)
 }

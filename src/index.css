@@ -55,9 +55,31 @@ main {
     top: 40%;
     left: 50%;
     transform: translateX(-50%);
-
     width: 50rem;
     max-width: 95%;
+    box-shadow: 2px 3px 18px purple;
 
-    box-shadow: 2px 3px 18px green;
+    animation: showBasket 500ms;
+}
+
+@keyframes showBasket {
+    from {
+        top: 70%;
+        opacity: 0;
+    }
+
+    to  {
+        top: 40%;
+        opacity: 1;
+    }
+}
+
+.secondary-content {
+    color: purple;
+}
+
+.basket-quantity {
+    cursor: pointer;
+    vertical-align: middle;
+    color: purple;
 }
