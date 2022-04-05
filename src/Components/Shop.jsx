@@ -3,11 +3,17 @@ import {API_KEY, API_URL} from '../config'
 import Preloader from "./Preloder";
 import GoodsList from "./GoodsList";
 import Cart from "./Cart";
+import BasketList from "./BasketList";
 
 export default function Shop(props) {
 	let [goods, setGoods] = useState([]);
 	let [isLoading, setLoading] = useState(true);
 	let [order, setOrder] = useState([]);
+	let [isBasketShow, setBasketShow] = useState(false);
+
+	const handleBasketShow = () => {
+		setBasketShow(!isBasketShow);
+	}
 
 
 	const addToBasket = (good) => {
@@ -41,7 +47,9 @@ export default function Shop(props) {
 	return (
 		<main className="container content">
 			{isLoading ? <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket}/>}
-			<Cart quantity={order.length}/>
+			<Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
+
+			{isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow}/>}
 		</main>
 	)
 }

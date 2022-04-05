@@ -49,3 +49,15 @@ main {
         right: 50px;
     }
 }
+
+.basket-list {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 50rem;
+    max-width: 95%;
+
+    box-shadow: 2px 3px 18px green;
+}
