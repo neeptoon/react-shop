@@ -58,6 +58,7 @@ main {
     width: 50rem;
     max-width: 95%;
     box-shadow: 2px 3px 18px purple;
+    user-select: none;
 
     animation: showBasket 500ms;
 }

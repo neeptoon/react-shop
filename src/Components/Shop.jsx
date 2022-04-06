@@ -20,16 +20,21 @@ export default function Shop(props) {
 
 		function changeQuantity(item) {
 			if (handlerName === 'increase') {
-				item.quantity += 1
+				return {
+					...item,
+					quantity: item.quantity + 1,
+				};
 			} else if (handlerName === 'decrease') {
-				item.quantity -= 1
-			}
-			return item
+				const newQuantity = item.quantity -= 1
+				return {
+					...item,
+					quantity: newQuantity >= 0 ? newQuantity : 0
+				}
+			} return item
 		}
 
 		const newOrder = order.map(item => {
 			if (item.id === itemId) {
-				console.log(item)
 				return changeQuantity(item)
 			} else {
 				return item
