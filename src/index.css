@@ -84,3 +84,32 @@ main {
     vertical-align: middle;
     color: purple;
 }
+
+.toast-container {
+    position: fixed;
+    bottom: 20vh;
+    right: 8vw;
+    animation: toast-animate 0.2s;
+
+}
+
+@media (min-width: 900px) {
+    .toast-container {
+        bottom: unset;
+        top: 13vh;
+        right: 8vw;
+    }
+}
+
+@keyframes toast-animate {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
