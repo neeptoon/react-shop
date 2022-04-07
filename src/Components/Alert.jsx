@@ -1,7 +1,8 @@
-import {useEffect} from 'react';
+import {ShopContext} from "../context";
+import {useEffect, useContext} from 'react';
 
-export default function Alert(props) {
-	const {alertName, closeAlert} = props;
+export default function Alert() {
+	const {alertName, closeAlert} = useContext(ShopContext);
 
 	useEffect(() => {
 		const timerId = setInterval(closeAlert, 3000 )

@@ -1,4 +1,9 @@
-export default function BasketItem({id, name, price, quantity, removeFromBasket, changeQuantity}) {
+import {ShopContext} from "../context";
+import {useContext} from "react";
+
+export default function BasketItem({id, name, price, quantity}) {
+
+	const {removeFromBasket, changeQuantity} = useContext(ShopContext)
 
 	if  (quantity < 1) {
 		removeFromBasket(id)
